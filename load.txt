@@ -1,0 +1,15 @@
+.separator |
+
+.import Items.dat Items
+update Items set Currently = null where Currently = 'NULL';
+update Items set Buy_Price = null where Buy_Price = 'NULL';
+update Items set First_Bid = null where First_Bid = 'NULL';
+update Items set Number_of_Bids = null where Number_of_Bids = 'NULL';
+
+.import Categories.dat Categories
+
+.import ItemCategories.dat ItemCategories
+
+.import Bids.dat Bids
+
+.import Users.dat Users
