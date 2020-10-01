@@ -1,0 +1,1 @@
+select max(Currently) from Items;
