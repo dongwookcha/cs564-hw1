@@ -7,8 +7,9 @@ update itemInfo set Currently = null where Currently = 'NULL';
 update itemInfo set Buy_Price = null where Buy_Price = 'NULL';
 update itemInfo set FirstBid = null where FirstBid = 'NULL';
 update itemInfo set NumberBids = null where NumberBids = 'NULL';
+update itemInfo set seller = null where seller = 'NULL';
 
 .import bidCollection.dat bidInfo
 
 
-.import catBidCollection catBidInfo
+.import catBidCollection.dat catBidInfo

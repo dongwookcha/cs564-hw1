@@ -4,19 +4,18 @@ drop table if exists bidInfo;
 drop table if exists catBidInfo;
 
 
-create table userInfo (
-UserID		INT		NOT NULL UNIQUE,
+create table userInfo(
+user_id		VARCHAR(255)	primary key NOT NULL,
 Rating		INT		NOT NULL,
 Location	VARCHAR(255)	NOT NULL,
 Country	    VARCHAR(255)	NOT NULL,
 isSeller    NUMBER         NOT NULL,
 isBuyer     NUMBER         NOT NULL,
-PRIMARY KEY (UserID),
-FOREIGN KEY UserID REFERENCES bidInfo (BidID)
+FOREIGN KEY user_id REFERENCES bidInfo (BidID)
 );
 
 create table itemInfo (
-ItemID INT NOT NULL UNIQUE,
+item_id INT NOT NULL UNIQUE,
 Name VARCHAR(255) NOT NULL,
 CategoryNum INT NOT NULL,
 Currently DOUBLE,
@@ -26,28 +25,29 @@ Location VARCHAR(255) NOT NULL,
 Country VARCHAR(255) NOT NULL,
 Started DATE NOT NULL,
 Ended DATE NOT NULL,
-Seller VARCHAR(225) NOT NULL,
+seller VARCHAR(225),
 Buy_Price DOUBLE,
-PRIMARY KEY (ItemID),
-FOREIGN KEY Seller REFERENCES userInfo(UserID),
-FOREIGN KEY ItemID REFERENCES catBidInfo(UserID)
+PRIMARY KEY (item_id),
+FOREIGN KEY seller REFERENCES userInfo(user_id),
+FOREIGN KEY item_id REFERENCES catBidInfo(user_id)
 );
 
 create table bidInfo (
-ItemID INT NOT NULL UNIQUE,
-UserID INT NOT NULL UNIQUE,
+item_id INT NOT NULL UNIQUE,
+user_id VARCHAR(225) NOT NULL UNIQUE,
 Seller_Rating INT NOT NULL,
 Location VARCHAR(225) NOT NULL,
 Country VARCHAR(225) NOT NULL,
 Time DATE NOT NULL,
 Amount DOUBLE NOT NULL,
-PRIMARY KEY (ItemID),
-FOREIGN KEY ItemID REFERENCES itemInfo (ItemID),
-FOREIGN KEY UserID REFERENCES userInfo (UserID)
+PRIMARY KEY (item_id),
+FOREIGN KEY item_id REFERENCES itemInfo (item_id),
+FOREIGN KEY user_id REFERENCES userInfo (user_id)
 );
 
 create table catBidInfo (
 Name     VARCHAR(225) NOT NULL,
-Amount     INT          NOT NULL,
-UserID     INT          NOT NULL UNIQUE
+Amount     DOUBLE     NOT NULL,
+user_id     VARCHAR(255)  NOT NULL UNIQUE,
+PRIMARY kEY (user_id)
 );
