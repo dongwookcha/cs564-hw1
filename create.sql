@@ -9,8 +9,8 @@ UserID		INT		NOT NULL UNIQUE,
 Rating		INT		NOT NULL,
 Location	VARCHAR(255)	NOT NULL,
 Country	    VARCHAR(255)	NOT NULL,
-isSeller    BOOL         NOT NULL,
-isBuyer     BOOL         NOT NULL,
+isSeller    NUMBER         NOT NULL,
+isBuyer     NUMBER         NOT NULL,
 PRIMARY KEY (UserID),
 FOREIGN KEY UserID REFERENCES bidInfo (BidID)
 );
@@ -28,13 +28,14 @@ Started DATE NOT NULL,
 Ended DATE NOT NULL,
 Seller VARCHAR(225) NOT NULL,
 Buy_Price DOUBLE,
-FOREIGN KEY Seller REFERENCES userInfo(UserID),
 PRIMARY KEY (ItemID)
+FOREIGN KEY Seller REFERENCES userInfo(UserID),
 );
 
 create table bidInfo (
 ItemID INT NOT NULL UNIQUE,
 UserID INT NOT NULL UNIQUE,
+Seller_Rating INT NOT NULL,
 Location VARCHAR(225) NOT NULL,
 Country VARCHAR(225) NOT NULL,
 Time DATE NOT NULL,
@@ -45,32 +46,9 @@ FOREIGN KEY UserID REFERENCES userInfo (UserID)
 );
 
 create table catBidInfo (
-aCateg     VARCHAR(225) NOT NULL,
-Amount     INT          NOT NULL UNIQUE,
+Name     VARCHAR(225) NOT NULL,
+Amount     INT          NOT NULL,
 UserID     INT          NOT NULL UNIQUE
 );
-
---create table Categories (
---CategoryID	INT		NOT NULL UNIQUE,
---Name		VARCHAR(255)	NOT NULL,
---PRIMARY KEY (CategoryID)
---);
---
---create table ItemCategories (
---ItemID		INT		NOT NULL UNIQUE,
---CategoryID	INT		NOT NULL UNIQUE,
---PRIMARY KEY (ItemID, CategoryID),
---FOREIGN KEY (ItemID) REFERENCES Items (ItemID),
---FOREIGN KEY (CategoryID) REFERENCES Categories (CategoryID)
---);
-
---create table Bids (
---BidID	INT		NOT NULL UNIQUE,
---Time	DATE		NOT NULL,
---Amount	DOUBLE		NOT NULL,
---PRIMARY KEY (BidID),
---FOREIGN KEY BidID REFERENCES Items (ItemID),
---FOREIGN KEY BidID REFERENCES Users (UserID)
---);
 
 

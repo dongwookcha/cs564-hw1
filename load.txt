@@ -1,15 +1,14 @@
 .separator |
 
-.import itemcollection.dat Items
-update Items set Currently = null where Currently = 'NULL';
-update Items set Buy_Price = null where Buy_Price = 'NULL';
-update Items set First_Bid = null where First_Bid = 'NULL';
-update Items set Number_of_Bids = null where Number_of_Bids = 'NULL';
+.import usersCollection.dat userInfo
 
-.import Categories.dat Categories
+.import itemcollection.dat itemInfo
+update itemInfo set Currently = null where Currently = 'NULL';
+update itemInfo set Buy_Price = null where Buy_Price = 'NULL';
+update itemInfo set FirstBid = null where FirstBid = 'NULL';
+update itemInfo set NumberBids = null where NumberBids = 'NULL';
 
-.import ItemCategories.dat ItemCategories
+.import bidCollection.dat bidInfo
 
-.import Bids.dat Bids
 
-.import usersCollection.dat Users
+.import catBidCollection catBidInfo
