@@ -22,14 +22,15 @@ CategoryNum INT NOT NULL,
 Currently DOUBLE,
 FirstBid DOUBLE,
 NumberBids INT,
-Location VARCHAR(255) NOT NULL
-Country VARCHAR(255) NOT NULL
+Location VARCHAR(255) NOT NULL,
+Country VARCHAR(255) NOT NULL,
 Started DATE NOT NULL,
 Ended DATE NOT NULL,
 Seller VARCHAR(225) NOT NULL,
 Buy_Price DOUBLE,
-PRIMARY KEY (ItemID)
+PRIMARY KEY (ItemID),
 FOREIGN KEY Seller REFERENCES userInfo(UserID),
+FOREIGN KEY ItemID REFERENCES catBidInfo(UserID)
 );
 
 create table bidInfo (
@@ -50,5 +51,3 @@ Name     VARCHAR(225) NOT NULL,
 Amount     INT          NOT NULL,
 UserID     INT          NOT NULL UNIQUE
 );
-
-
