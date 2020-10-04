@@ -1,1 +1,4 @@
-select count(*) from Users where Location="New York";
+--q2
+SELECT count(UserID)
+FROM userInfo u
+WHERE u.Location = "New York";

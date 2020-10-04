@@ -1,1 +1,3 @@
-select count(*) from Users;
+--q1
+SELECT count(UserID)
+FROM userInfo;

@@ -1,1 +1,4 @@
-select count(ItemID) from (select ItemID, count(CategoryID) as countingCategory from ItemCategories group by ItemID) where countingCategory=4;
+--q3
+SELECT count(ItemID)
+FROM item i
+WHERE i.CategoryNum = 4;

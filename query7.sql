@@ -1,2 +1,4 @@
-/* 7. Find the number of categories that include at least one item with a bid of more than $100.
-*/
+--q7
+SELECT count(distinct Categories)
+FROM catBidInfo c
+WHERE c.Amount > 100

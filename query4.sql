@@ -1,1 +1,4 @@
-select max(Currently) from Items;
+SELECT ItemID 
+FROM item 
+ORDER BY Currently 
+DESC LIMIT 1;

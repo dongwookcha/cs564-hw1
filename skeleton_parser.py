@@ -34,7 +34,7 @@ columnSeparator = "|"
 # Dictionary of months used for date transformation
 MONTHS = {'Jan':'01','Feb':'02','Mar':'03','Apr':'04','May':'05','Jun':'06',\
         'Jul':'07','Aug':'08','Sep':'09','Oct':'10','Nov':'11','Dec':'12'}
-
+########################################################################################
 users = {}
 itemcollection = set()
 bidCollection = set()
@@ -45,6 +45,7 @@ debug3Counter = 0
 debug4 = 0
 debug5 = None
 debug6 = set()
+#########################################################################################
 """
 Returns true if a file ends in .json
 """
@@ -252,7 +253,7 @@ def generateDAT():
 Loops through each json files provided on the command line and passes each file
 to the parser
 """
-'''
+
 def main(argv):
     if len(argv) < 2:
         print >> sys.stderr, 'Usage: python skeleton_json_parser.py <path to json files>'
@@ -262,17 +263,20 @@ def main(argv):
         if isJson(f):
             parseJson(f)
             print ("Success parsing " + f)
+    reformUser()
+    generateDAT()
+
     
 
 if __name__ == '__main__':
     main(sys.argv)
-    '''
+
 
 
 #parseJson("items-0.json")
 
-
-def findAllFile(base):
+#############################################################################################################################
+'''def findAllFile(base):
     for root, ds, fs in os.walk(base):
         for f in fs:
             yield f
@@ -288,5 +292,5 @@ for aJson in jsons:
     parseJson(aJson)
     #print(aJson)
 reformUser()
-generateDAT()
+generateDAT()'''
 
